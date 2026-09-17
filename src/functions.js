@@ -50,4 +50,12 @@ export function enregistrerResultat(id,resultat) {
         }
     }
 }
+export function rechercherApprenant(recherch) {
+    for(let persone of nomComplet){
+        if(id.nomComplet===id){
+            return nomComplet;
+        }
+    }
+    return null
+}
 

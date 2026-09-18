@@ -89,53 +89,5 @@ export const apprenants = [
     resultats: [
       { jour: 1, exercicesTermines: 17, totalExercices: 20, challengeTermine: true }
     ]
-  },
-  {
-    id: 12,
-    nomComplet: "Walid Git",
-    ville: "Berkane",
-    resultats: [
-      { jour: 1, exercicesTermines: 6, totalExercices: 20, challengeTermine: false }
-    ]
-  },
-  {
-    id: 13,
-    nomComplet: "Zineb Frontend",
-    ville: "Nador",
-    resultats: [
-      { jour: 1, exercicesTermines: 13, totalExercices: 20, challengeTermine: false }
-    ]
-  },
-  {
-    id: 14,
-    nomComplet: "Othmane Logic",
-    ville: "Oujda",
-    resultats: [
-      { jour: 1, exercicesTermines: 4, totalExercices: 20, challengeTermine: false }
-    ]
-  },
-  {
-    id: 15,
-    nomComplet: "Houda Fullstack",
-    ville: "Al Hoceima",
-    resultats: [
-      { jour: 1, exercicesTermines: 20, totalExercices: 20, challengeTermine: true }
-    ]
-  },
-  {
-    id: 16,
-    nomComplet: "Ibrahim Backend",
-    ville: "Nador",
-    resultats: [
-      { jour: 1, exercicesTermines: 11, totalExercices: 20, challengeTermine: false }
-    ]
-  },
-  {
-    id: 17,
-    nomComplet: "Nadia Stack",
-    ville: "Berkane",
-    resultats: [
-      { jour: 1, exercicesTermines: 7, totalExercices: 20, challengeTermine: false }
-    ]
   }
 ];

@@ -18,8 +18,8 @@ export function validerResultat(jour, exercicesTermines, totalExercices) {
     return true;
 }
  export function ajouterApprenant(nomComplet, ville) {
-    for (let i of apprenants) {
-        if (nomComplet === i.nomComplet) {
+    for (let apprenant of apprenants){
+        if (nomComplet === apprenant.nomComplet){
             console.log("Cet apprenant existe déjà !");
             return false;
         }
@@ -34,6 +34,7 @@ export function validerResultat(jour, exercicesTermines, totalExercices) {
     apprenants.push(object);
     return true;
 }
+
 export function enregistrerResultat(id,resultat) {
     for(let apprenant of apprenants) {
         if(apprenant.id=== id)
@@ -50,12 +51,26 @@ export function enregistrerResultat(id,resultat) {
         }
     }
 }
+
 export function rechercherApprenant(recherch) {
-    for(let persone of nomComplet){
-        if(id.nomComplet===id){
-            return nomComplet;
+    for(let persone of apprenants){
+        if (persone.id == recherch || persone.nomComplet === recherch){
+            return persone;
         }
     }
     return null
 }
+export function calculerProgression(id) {
+    let apprenant= rechercherApprenant(id);
+    if(apprenant=== null) {
+        return 0
+    }
+    let totalExercices = 0
+    let exercicesTermines =0;
+    for(let  resultat of apprenant.resultats){
+        totalExercices += resultat.totalExercices;
+        exercicesTermines += resultat.exercicesTermines;
+    }
+    return Math.round((exercicesTermines/totalExercices)*100);
 
+}

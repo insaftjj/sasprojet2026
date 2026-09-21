@@ -1,4 +1,4 @@
- import promptSync from "prompt-sync";
+import promptSync from "prompt-sync";
 import { apprenants } from "./data.js";
 import { 
     ajouterApprenant, 
@@ -30,11 +30,11 @@ function app() {
     const choix = prompt("Choisissez une option : ").trim();
 
     switch (choix) {
-      case "1":
+      case "1":{
         console.log("Afficher la liste des apprenants")
-        console.log(apprenants);
+        afficherListeApprenants(apprenants);
         break;
-
+      }
       case "2": {
         console.log(" Ajouter un apprenant");
         const nom = prompt("Nom complet : ");
@@ -77,14 +77,16 @@ function app() {
 
       case "6": {
        console.log(" Filtrer par niveau ");
-                const niveau = prompt("Niveau (débutant / intermédiaire / avancé) : ");
+                const niveau = prompt("Niveau (débutant (1) / intermediaire(2) / avancees (3): ");
                 const resultatFiltre = filtrerParNiveau(niveau);
                 console.log(` Résultats pour '${niveau}' :`, resultatFiltre);
                 break;
       }
 
+      
+
       case "0":
-        console.log("Au revoir !");
+        console.log("Au revoir !"); 
         enExecution = false;
         break;
 

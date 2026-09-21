@@ -4,8 +4,7 @@ import {
     ajouterApprenant, 
     rechercherApprenant, 
     enregistrerResultat, 
-    calculerProgression, 
-  //filtrerParNiveau 
+    calculerProgression
 } from "./functions.js";
 const prompt = promptSync({ sigint: true });
 
@@ -17,7 +16,6 @@ function afficherMenu() {
   console.log("3. Consulter/Rechercher un apprenant");
   console.log("4. Ajouter ou modifier le résultat d'une journée");
   console.log("5. Calculer la progression d'un apprenant");
-  console.log("6. Filtrer les apprenants par niveau");
   console.log("0. Quitter");
   console.log("=======================================");
 }
@@ -74,17 +72,6 @@ function app() {
         console.log(`Progression : ${calculerProgression(id)}%`);
         break;
       }
-
-      case "6": {
-       console.log(" Filtrer par niveau ");
-                const niveau = prompt("Niveau (débutant (1) / intermediaire(2) / avancees (3): ");
-                const resultatFiltre = filtrerParNiveau(niveau);
-                console.log(` Résultats pour '${niveau}' :`, resultatFiltre);
-                break;
-      }
-
-      
-
       case "0":
         console.log("Au revoir !"); 
         enExecution = false;

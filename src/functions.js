@@ -18,22 +18,30 @@ export function validerResultat(jour, exercicesTermines, totalExercices) {
     return true;
 }
  export function ajouterApprenant(nomComplet, ville) {
-    for (let apprenant of apprenants){
-        if (nomComplet === apprenant.nomComplet){
+    const nomNormalise = normaliserNom(nomComplet);
+
+    for (let apprenant of apprenants) {
+        if (nomNormalise === normaliserNom(apprenant.nomComplet)) {
             console.log("Cet apprenant existe déjà !");
             return false;
         }
     }
+
+    const nouvelId = apprenants.length > 0
+        ? Math.max(...apprenants.map(a => a.id)) + 1
+        : 1;
+
     const object = {
-        id: apprenants.length + 1,
-        nomComplet: normaliserNom(nomComplet),
+        id: nouvelId,
+        nomComplet: nomComplet.trim(),
         ville: ville,
-        resultat: []
+        resultats: []
     };
 
     apprenants.push(object);
+
     return true;
-}
+ }
 
 export function enregistrerResultat(id,resultat) {
     for(let apprenant of apprenants) {

@@ -9,6 +9,17 @@ import {
 const prompt = promptSync({ sigint: true });
 
 
+function afficherListeApprenants(liste) {
+  if (liste.length === 0) {
+    console.log("Aucun apprenant enregistré.");
+    return;
+  }
+
+  for (const apprenant of liste) {
+    console.log(`#${apprenant.id} - ${apprenant.nomComplet} (${apprenant.ville}) - ${apprenant.resultats.length} journée(s) renseignée(s)`);
+  }
+}
+
 function afficherMenu() {
   console.log("================ MENU ================");
   console.log("1. Afficher la liste des apprenants");
@@ -37,7 +48,10 @@ function app() {
         console.log(" Ajouter un apprenant");
         const nom = prompt("Nom complet : ");
         const ville = prompt("Ville : ");
-        ajouterApprenant(nom, ville);
+        const ajoute = ajouterApprenant(nom, ville);
+        if (ajoute) {
+          console.log("Apprenant ajouté avec succès.");
+        }
         break;
       }
 
@@ -57,12 +71,15 @@ function app() {
         const totalEx = parseInt(prompt("Total exercices : "));
         const challenge = prompt("Challenge terminé (oui/non) : ").toLowerCase() === "oui";
 
-        enregistrerResultat(id, {
+        const enregistre = enregistrerResultat(id, {
           jour: jour,
           exercicesTermines: exTermines,
           totalExercices: totalEx,
           challengeTermine: challenge
         });
+        if (enregistre) {
+          console.log(`Résultat du jour ${jour} enregistré.`);
+        }
         break;
       }
 
@@ -81,6 +98,6 @@ function app() {
         console.log("Option invalide. Veuillez saisir un nombre valide.");
     }
   }
-}
+ }
 
 app();

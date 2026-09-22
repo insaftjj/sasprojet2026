@@ -27,9 +27,11 @@ export function validerResultat(jour, exercicesTermines, totalExercices) {
         }
     }
 
-    const nouvelId = apprenants.length > 0
-        ? Math.max(...apprenants.map(a => a.id)) + 1
-        : 1;
+       let nouvelId = 1
+       if(apprenants.length>0){
+       nouvelId = apprenants[apprenants.length-1].id+1;
+
+    }
 
     const object = {
         id: nouvelId,
